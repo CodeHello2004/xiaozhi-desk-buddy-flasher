@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#071018">
+  <title>Simple Circuits Xiaozhi Desk Buddy Installer</title>
+  <script type="module" src="https://unpkg.com/esp-web-tools@10/dist/web/install-button.js?module"></script>
+  <style>
+    :root{color-scheme:dark;--bg:#071018;--panel:#101d29;--text:#f5fbff;--muted:#a8bac8;--cyan:#58e4df;--blue:#4a9eff;--line:#274052}
+    *{box-sizing:border-box}body{margin:0;min-height:100vh;background:radial-gradient(circle at 15% 5%,#173e5d 0,transparent 34%),var(--bg);color:var(--text);font-family:Inter,Segoe UI,Arial,sans-serif}
+    main{width:min(760px,calc(100% - 32px));margin:auto;padding:42px 0}.brand{font-weight:800;letter-spacing:.04em;color:var(--cyan)}h1{font-size:clamp(36px,8vw,66px);line-height:1;margin:24px 0 16px;letter-spacing:-.045em}.lead{max-width:650px;color:var(--muted);font-size:18px;line-height:1.6}
+    .card{margin-top:32px;padding:30px;border:1px solid var(--line);border-radius:24px;background:rgba(16,29,41,.94);box-shadow:0 24px 70px rgba(0,0,0,.35)}.tag{display:inline-block;padding:7px 11px;border-radius:999px;background:#153d3c;color:var(--cyan);font-size:12px;font-weight:800;letter-spacing:.08em}.details{margin:22px 0;padding:16px;border-radius:14px;background:#0b1620;color:var(--muted);line-height:1.7}.details strong{color:var(--text)}
+    label{display:block;margin:20px 0 8px;font-size:13px;font-weight:800}select{width:100%;min-height:52px;padding:0 14px;border:1px solid var(--line);border-radius:13px;background:#09141e;color:var(--text);font:inherit}select:focus{outline:3px solid rgba(74,158,255,.22);border-color:var(--blue)}.detected{margin:8px 0 20px;color:var(--muted);font-size:12px}
+    esp-web-install-button{display:block;--esp-tools-button-color:var(--blue);--esp-tools-button-text-color:#fff;--esp-tools-button-border-radius:14px}.install{width:100%;min-height:56px;border:0;border-radius:14px;background:linear-gradient(135deg,var(--blue),var(--cyan));color:#03121c;font:800 17px Segoe UI,Arial,sans-serif;cursor:pointer}.install:disabled{opacity:.4;cursor:not-allowed}.warning{display:block;padding:14px;border:1px solid #73552c;border-radius:12px;background:#2a2115;color:#ffd59a;line-height:1.5}
+    ol{padding-left:22px;color:var(--muted);line-height:1.75}.note{margin-top:20px;padding:14px;border-left:3px solid var(--cyan);background:#0b1620;color:var(--muted);line-height:1.55}footer{margin-top:26px;color:#728899;font-size:12px;text-align:center}
+  </style>
+</head>
+<body>
+  <main>
+    <div class="brand">SIMPLE CIRCUITS</div>
+    <h1>Xiaozhi Desk Buddy</h1>
+    <p class="lead">Choose your local time zone, then install the tested firmware from desktop Chrome or Microsoft Edge.</p>
+    <section class="card">
+      <span class="tag">TEST WIRING · VERSION 1.3.3</span>
+      <div class="details">
+        <strong>Board:</strong> Seeed Studio XIAO ESP32-S3 Sense<br>
+        <strong>Display:</strong> 128×64 SH1106 OLED<br>
+        <strong>Included:</strong> final face UI, clock, chat page, touch controls, external microphone, speaker and “Hi, Jason” wake word
+      </div>
+
+      <label for="timezone">Country or time zone</label>
+      <select id="timezone">
+        <option value="">Select your country or UTC offset…</option>
+        <option value="-720">UTC−12:00 · Baker and Howland Islands</option>
+        <option value="-660">UTC−11:00 · American Samoa, Niue</option>
+        <option value="-600">UTC−10:00 · Hawaii, Tahiti</option>
+        <option value="-570">UTC−09:30 · Marquesas Islands</option>
+        <option value="-540">UTC−09:00 · Alaska</option>
+        <option value="-480">UTC−08:00 · Pacific USA and Canada</option>
+        <option value="-420">UTC−07:00 · Mountain USA and Canada</option>
+        <option value="-360">UTC−06:00 · Central USA, Mexico</option>
+        <option value="-300">UTC−05:00 · Eastern USA, Colombia, Peru</option>
+        <option value="-240">UTC−04:00 · Atlantic Canada, Caribbean</option>
+        <option value="-210">UTC−03:30 · Newfoundland</option>
+        <option value="-180">UTC−03:00 · Argentina, Brazil, Uruguay</option>
+        <option value="-120">UTC−02:00 · South Georgia</option>
+        <option value="-60">UTC−01:00 · Azores, Cape Verde</option>
+        <option value="0">UTC±00:00 · UK, Portugal, Ghana</option>
+        <option value="60">UTC+01:00 · Central Europe, Nigeria</option>
+        <option value="120">UTC+02:00 · Eastern Europe, South Africa</option>
+        <option value="180">UTC+03:00 · East Africa, Saudi Arabia, Moscow</option>
+        <option value="210">UTC+03:30 · Iran</option>
+        <option value="240">UTC+04:00 · UAE, Oman, Georgia</option>
+        <option value="270">UTC+04:30 · Afghanistan</option>
+        <option value="300">UTC+05:00 · Pakistan, Maldives</option>
+        <option value="330">UTC+05:30 · India, Sri Lanka</option>
+        <option value="345">UTC+05:45 · Nepal</option>
+        <option value="360">UTC+06:00 · Bangladesh, Bhutan</option>
+        <option value="390">UTC+06:30 · Myanmar</option>
+        <option value="420">UTC+07:00 · Thailand, Vietnam, Indonesia</option>
+        <option value="480">UTC+08:00 · China, Singapore, Western Australia</option>
+        <option value="525">UTC+08:45 · Eucla, Australia</option>
+        <option value="540">UTC+09:00 · Japan, South Korea</option>
+        <option value="570">UTC+09:30 · Central Australia</option>
+        <option value="600">UTC+10:00 · Eastern Australia, Papua New Guinea</option>
+        <option value="630">UTC+10:30 · Lord Howe Island</option>
+        <option value="660">UTC+11:00 · Solomon Islands, New Caledonia</option>
+        <option value="720">UTC+12:00 · New Zealand, Fiji</option>
+        <option value="765">UTC+12:45 · Chatham Islands</option>
+        <option value="780">UTC+13:00 · Tonga, Samoa</option>
+        <option value="840">UTC+14:00 · Kiribati Line Islands</option>
+      </select>
+      <div class="detected" id="detected">Checking this computer’s current UTC offset…</div>
+
+      <esp-web-install-button id="installer">
+        <button class="install" id="installButton" slot="activate" disabled>Select a Time Zone First</button>
+        <span class="warning" slot="unsupported">Use desktop Google Chrome or Microsoft Edge, which support Web Serial.</span>
+        <span class="warning" slot="not-allowed">The installer must be opened from a secure HTTPS website.</span>
+      </esp-web-install-button>
+      <ol>
+        <li>Connect the XIAO with a USB data cable.</li>
+        <li>Choose your country or current UTC offset.</li>
+        <li>Click the install button and choose the XIAO serial port.</li>
+        <li>After reboot, connect to the Xiaozhi setup hotspot and enter your Wi-Fi details.</li>
+        <li>Wait for the six-digit activation code on the OLED.</li>
+        <li>Open xiaozhi.me, add a device, and enter that code to bind your agent.</li>
+      </ol>
+      <div class="note">The selected offset is fixed. If your country changes clocks for daylight saving time, choose its current UTC offset when flashing. Installation clears saved Wi-Fi settings. If this physical board is already listed in xiaozhi.me, delete that old device entry before installing so the server will issue a new activation code.</div>
+    </section>
+    <footer>Firmware by Simple Circuits</footer>
+  </main>
+  <script>
+    (function () {
+      var select = document.getElementById('timezone');
+      var installer = document.getElementById('installer');
+      var button = document.getElementById('installButton');
+      var detected = document.getElementById('detected');
+
+      function slug(minutes) {
+        var value = Math.abs(minutes);
+        var hours = String(Math.floor(value / 60)).padStart(2, '0');
+        var mins = String(value % 60).padStart(2, '0');
+        return 'utc_' + (minutes < 0 ? 'm' : 'p') + hours + mins;
+      }
+
+      function applySelection() {
+        if (select.value === '') {
+          installer.removeAttribute('manifest');
+          button.disabled = true;
+          button.textContent = 'Select a Time Zone First';
+          return;
+        }
+        var minutes = Number(select.value);
+        installer.setAttribute('manifest', 'manifests/' + slug(minutes) + '.json');
+        button.disabled = false;
+        button.textContent = 'Connect & Install Firmware';
+      }
+
+      var browserOffset = -new Date().getTimezoneOffset();
+      var matching = Array.from(select.options).find(function (option) {
+        return option.value !== '' && Number(option.value) === browserOffset;
+      });
+      if (matching) {
+        select.value = matching.value;
+        detected.textContent = 'Selected automatically from this computer: ' + matching.textContent;
+      } else {
+        detected.textContent = 'Automatic detection was unavailable; please choose the nearest current UTC offset.';
+      }
+      select.addEventListener('change', applySelection);
+      applySelection();
+    })();
+  </script>
+</body>
+</html>

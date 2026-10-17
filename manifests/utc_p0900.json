@@ -1,0 +1,38 @@
+{
+  "name": "Simple Circuits Xiaozhi Desk Buddy - TEST Wiring",
+  "version": "1.3.3",
+  "new_install_prompt_erase": false,
+  "new_install_improv_wait_time": 0,
+  "builds": [
+    {
+      "chipFamily": "ESP32-S3",
+      "improv": false,
+      "parts": [
+        {
+          "path": "../firmware/bootloader.bin",
+          "offset": 0
+        },
+        {
+          "path": "../firmware/partition-table.bin",
+          "offset": 32768
+        },
+        {
+          "path": "../timezones/utc_p0900.bin",
+          "offset": 36864
+        },
+        {
+          "path": "../firmware/ota-data-initial.bin",
+          "offset": 53248
+        },
+        {
+          "path": "../firmware/xiaozhi.bin",
+          "offset": 131072
+        },
+        {
+          "path": "../firmware/generated-assets.bin",
+          "offset": 6291456
+        }
+      ]
+    }
+  ]
+}
